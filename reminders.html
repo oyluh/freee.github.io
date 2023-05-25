@@ -8,130 +8,124 @@
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
-<style>
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
+  <title>Dates Reeveal</title>
+  <style>
+    body {
+      background-color: lavender;;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #d84f4f;
+    }
 
-.flip-card {
-  background-color: transparent;
-  width: 200px;
-  height: 300px;
-  perspective: 1000px;
-  margin: 10px;
-}
+    .correct {
+      background-color: #c3e6cb;
+    }
 
-.flip-card-inner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  text-align: center;
-  transition: transform 0.6s;
-  transform-style: preserve-3d;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
-}
+    .my-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #86B278;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
 
-.flip-card:hover .flip-card-inner {
-  transform: rotateY(180deg);
-}
+    .my-button:hover {
+      background-color: #d84f4f;
+    }
 
-.flip-card-front, .flip-card-back {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  backface-visibility: hidden;
-}
+    #answerInput {
+      margin-bottom: 10px;
+    }
 
-.flip-card-front {
-  background-color: #f9b5b5;
-  color: white;
-  transform: rotateY(0deg);
-}
+    #question {
+      margin-bottom: 10px;
+    }
 
-.flip-card-back {
-  background-color: #A27BB8;
-  color: white;
-  transform: rotateY(180deg);
-}
+    #goBackButton {
+      position: center;
+      bottom: 20px;
+      left: 20px;
+      display: none;
+    }
 
-body {
-  background-color: lavender;
-  margin: 0;
-}
+    script{
+        text-align: center;
+    }
 
-.my-button {
-  display: block;
-  margin: 0 auto;
-  margin-top: 10px;
-  padding: 10px 20px;
-  background-color: #86B278;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-}
-
-.my-button:hover {
-  background-color: #d84f4f;
-}
-
-.hh {
-   text-align: center;
-   color: #d84f4f;
-   padding-top: 200;
-}
-</style>
+  </style>
 </head>
 <body>
-<h1 class="hh">Reeminders</h1>
-<div class="container">
-  <div class="flip-card">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <h1>Click Me!</h1>
-      </div>
-      <div class="flip-card-back">
-        <h1 id="c1">You are beautiful and pretty.</h1>
-      </div>
-    </div>
-  </div>
+  <h1>Dates Reeveal Game</h1>
 
-  <div class="flip-card">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <h1>Click Me!</h1>
-      </div>
-      <div class="flip-card-back">
-        <h1 id="c2">I'm proud of you.</h1>
-      </div>
-    </div>
-  </div>
-
-  <div class="flip-card">
-    <div class="flip-card-inner">
-      <div class="flip-card-front">
-        <h1>Click Me!</h1>
-      </div>
-      <div class="flip-card-back">
-        <h1 id="c3">I appreciate your existence.</h1>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="btn-container">
-  <button class="my-button" onclick="goBack()">Go Back</button>
-</div>
+  <div id="question"></div>
+  <input type="text" id="answerInput">
+  <button class="my-button" onclick="checkAnswer()">Submit</button>
+  <button id="goBackButton" class="my-button" onclick="goBack()" style="display: none;">Exit</button>
 </body>
 <script>
+    var questions = [
+      {
+        question: "When is our First Monthsary? (xx/xx/xx) | [Month/Day/Year] | Ex: 03/23/23",
+        answer: "04/26/23"
+      },
+      {
+        question: "When did we started talking to each other? (xx/xx/xx) | [Month/Day/Year] | Ex: 03/23/23",
+        answer: "07/15/22"
+      },
+      {
+        question: "When did I confess to you? (xx/xx/xx) | [Month/Day/Year] | Ex: 03/23/23",
+        answer: "04/02/23"
+      }
+    ];
+
+    var currentQuestionIndex = 0;
+    var questionDiv = document.getElementById("question");
+    var answerInput = document.getElementById("answerInput");
+    var goBackButton = document.getElementById("goBackButton");
+
+    function displayQuestion() {
+      questionDiv.textContent = questions[currentQuestionIndex].question;
+      answerInput.value = "";
+      answerInput.focus();
+      goBackButton.style.display = "none";
+    }
+
+    function checkAnswer() {
+      var userAnswer = answerInput.value.trim();
+      var correctAnswer = questions[currentQuestionIndex].answer;
+
+      if (userAnswer === correctAnswer) {
+        document.body.classList.add("correct");
+      } else {
+        document.body.classList.remove("correct");
+        alert("Incorrect! The correct answer is: " + correctAnswer);
+      }
+
+      currentQuestionIndex++;
+
+      if (currentQuestionIndex < questions.length) {
+        displayQuestion();
+      } else {
+        alert("Quiz completed!");
+        answerInput.style.display = "none";
+        goBackButton.style.display = "inline-block";
+      }
+    }
+
     function goBack() {
       window.history.go(-1);
     }
+
+    displayQuestion();
   </script>
 </html>
