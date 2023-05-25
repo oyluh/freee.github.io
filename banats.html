@@ -1,6 +1,13 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
   <title>Reez</title>
   <style>
     body {
@@ -145,25 +152,24 @@
   </div>
 
   <button class="my-button" onclick="goBack()">Go Back</button>
-
-  <script>
-    var gridItems = document.querySelectorAll('.grid-item');
-
-    gridItems.forEach(function (item) {
-      item.addEventListener('click', function () {
-        var selectedItems = document.querySelectorAll('.grid-item.selected');
-        selectedItems.forEach(function (selected) {
-          if (selected !== item) {
-            selected.classList.remove('selected');
-          }
-        });
-        item.classList.toggle('selected');
-      });
-    });
-
-    function goBack() {
-      window.history.go(-1);
-    }
-  </script>  
 </body>
+<script>
+  var gridItems = document.querySelectorAll('.grid-item');
+
+  gridItems.forEach(function (item) {
+    item.addEventListener('click', function () {
+      var selectedItems = document.querySelectorAll('.grid-item.selected');
+      selectedItems.forEach(function (selected) {
+        if (selected !== item) {
+          selected.classList.remove('selected');
+        }
+      });
+      item.classList.toggle('selected');
+    });
+  });
+
+  function goBack() {
+    window.history.go(-1);
+  }
+</script>  
 </html>
