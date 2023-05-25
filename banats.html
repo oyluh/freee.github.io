@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Reez</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      height: 100vh;
+    }
+
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 10px;
+    }
+
+    .grid-item {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .grid-item.selected .content {
+      display: block;
+    }
+
+    .content {
+      display: none;
+    }
+
+    .my-button {
+      margin-top: 50px;
+    }
+
+    .my-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color:	#6cce56;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .my-button:hover {
+        background-color: #d84f4f;
+    }
+
+    .grid-item {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #f9b5b5;
+        color: 	white;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .grid-item:hover:not(.selected) {
+        background-color: #d84f4f;
+    }
+
+    body{
+      background-color: lavender;
+    }
+
+    .content {
+      background-color: transparent;
+    }
+
+    p.content {
+      font-weight: bold;
+    }
+
+    h1 {
+      color: #d84f4f;
+    }
+  </style>
+</head>
+<body>
+  <h1>Banats (with reez)</h1>
+  <div class="grid-container">
+    <div class="grid-item">
+      kung pagod ka na sa buhay mo
+      <div class="content">
+        <p><strong>lipat ka, welcome ka naman sa buhay ko ;)</strong></p>
+      </div>
+    </div>
+    <div class="grid-item">
+      ayoko magtake ng risk
+      <div class="content">
+        <p><strong>pero basta ikaw g hehe</strong></p>
+      </div>
+    </div>
+    <div class="grid-item">
+      hindi ka ba napapagod?
+      <div class="content">
+        <p><strong>araw-araw ka kasi tumatakbo sa isip ko</strong></p>
+      </div>
+    </div>
+    <div class="grid-item">
+      akala ko sa H nagsstart ang happiness
+      <div class="content">
+        <p><strong>pero bat yung sakin sa Y</strong></p>
+      </div>
+    </div>
+    <div class="grid-item">
+      edi dun ka na
+      <div class="content">
+        <p><strong>joke lang wag</strong></p>
+      </div>
+    </div>
+    <div class="grid-item">
+      ingat ka ha, ayoko may mangyari sa'yo
+      <div class="content">
+        <p><strong>gusto ko sa'tin lang</strong></p>
+      </div>
+    </div>
+    <div class="grid-item">
+      kung di ka para sakin
+      <div class="content">
+        <p><strong>para kang tanga</strong></p>
+      </div>
+    </div>
+    <div class="grid-item">
+      lagi nalang ako pagod
+      <div class="content">
+        <p><strong>g ka ba maging pahinga ko?</strong></p>
+      </div>
+    </div>
+    <div class="grid-item">
+      ang panget sa G-Cash
+      <div class="content">
+        <p><strong>sa mga ngiti mo nalang ako magpapadala :pp</strong></p>
+      </div>
+    </div>
+  </div>
+
+  <button class="my-button" onclick="goBack()">Go Back</button>
+
+  <script>
+    var gridItems = document.querySelectorAll('.grid-item');
+
+    gridItems.forEach(function (item) {
+      item.addEventListener('click', function () {
+        var selectedItems = document.querySelectorAll('.grid-item.selected');
+        selectedItems.forEach(function (selected) {
+          if (selected !== item) {
+            selected.classList.remove('selected');
+          }
+        });
+        item.classList.toggle('selected');
+      });
+    });
+
+    function goBack() {
+      window.history.go(-1);
+    }
+  </script>  
+</body>
+</html>

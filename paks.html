@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Freequently Asked Questions</title>
+  <style>
+    .faq {
+      margin-bottom: 20px;
+    }
+    
+    .faq-question {
+      font-weight: bold;
+      cursor: pointer;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      background-color: #f9f9f9;
+    }
+    
+    .faq-answer {
+      display: none;
+      margin-top: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      background-color: #fff;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    }
+    
+    .faq-answer p {
+      margin: 0;
+    }
+  
+    .button:hover {
+      background-color: #d84f4f;
+    }
+  
+    .my-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #86B278;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+        margin: 5px;
+    }
+
+    .my-button:hover {
+        background-color: #d84f4f;
+    }
+
+    body   {
+      background-color: lavender;
+    }
+
+    h1 {
+      color: #d84f4f;
+    }
+
+  </style>
+  
+
+  </style>
+  <script>
+    function toggleAnswer(faq) {
+      var answer = faq.nextElementSibling;
+      if (answer.style.display === "none") {
+        answer.style.display = "block";
+      } else {
+        answer.style.display = "none";
+      }
+    }
+
+    function goBack() {
+    window.history.go(-1);
+    }
+              
+  </script>
+</head>
+<body>
+  <h1>Freequently Asked Questions</h1>
+  
+  <div class="faq">
+    <div class="faq-question" onclick="toggleAnswer(this)">Q: How long did you make all of this?</div>
+    <div class="faq-answer">
+      <p>
+        A: I made this from May 23 to May 25. (yes I crammed my way here) I'm not sure with the total hours of work but it really took
+        time because I'm not that knowledgeable on this programming language :c and everything was just made on the spot.
+      </p>
+    </div>
+  </div>
+  
+  <div class="faq">
+    <div class="faq-question" onclick="toggleAnswer(this)">Q: How did you make it?</div>
+    <div class="faq-answer">
+      <p>
+        A: I used the programming languages HTML, CSS, and some JavaScript with the help of my dear friend ChatGPT. :D
+      </p>
+    </div>
+  </div>
+  
+  <div class="faq">
+    <div class="faq-question" onclick="toggleAnswer(this)">Q: Are you nervous/worried during the time you're working on it?</div>
+    <div class="faq-answer">
+      <p>
+        A: Definitely yes! I was really worried that I won't be able to finish it because I only know the basics of HTML and CSS and
+        literally zero knowledge with JavaScript that's why I'm so lucky to have ChatGPT as my companion while making it, it really 
+        helped me a lot! :<
+      </p>
+    </div>
+  </div>
+
+  <div class="faq">
+    <div class="faq-question" onclick="toggleAnswer(this)">Q: Did you plan all of this ahead of time?</div>
+    <div class="faq-answer">
+      <p>
+        A: Definitely not, I wasn't really prepared and did this the last minute. It was just a sudden idea and I think everything was
+        just according to plan because it's the same week I started to plan and want to study some programming languages and had just 
+        reset my Laptop so I can use my Visual Studio Code as my IDE.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq">
+    <div class="faq-question" onclick="toggleAnswer(this)">Q: Were all your ideas and goals achieved in this project?</div>
+    <div class="faq-answer">
+      <p>
+        A: No :( I really wanted it to be strawberry themed but I lack the skills and knowledge and just gave up midway on 
+        creating one, I tried! :( so I adjusted and just picked your favorite color green and the color of your favorite flower 
+        lavender as the color theme. Also, the buttons were referenced after the color of strawberries which is red! and to add to my
+        already long answer, I actually had a lot of ideas I wanted to add but due to my lack of skills I wasn't able to do it :-: 
+        maybe next time!
+      </p>
+    </div>
+  </div>
+
+  <div class="faq">
+    <div class="faq-question" onclick="toggleAnswer(this)">Q: Did you have a hard time creating this?</div>
+    <div class="faq-answer">
+      <p>
+        A: Yes and No, yes it was really hard because I was running out of ideas and it was really hard to debug the code sometimes 
+        and to come up with solutions or adjustments that will make the code work, and no because I really had fun creating this not 
+        only because this is for my love but also because I learned something out of creating it and it was a great experience! 
+      </p>
+    </div>
+  </div>
+
+  <div class="faq">
+    <div class="faq-question" onclick="toggleAnswer(this)">Q: Are you excited to show this to your love?</div>
+    <div class="faq-answer">
+      <p>
+        A: Yes! I was so excited to show it to my love and see her reaction even when I was still in the middle of making it :-: that's 
+        how excited I am hehe. I'm terrible at hiding surprises and I nearly exposed myself to you during the time of creation, haixt.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq">
+    <div class="faq-question" onclick="toggleAnswer(this)">Q: What part of the project do you like the most?</div>
+    <div class="faq-answer">
+      <p>
+        A: The FAQ's and the letter part! because I've expressed and just became myself as I inputted everything in these two sections.
+        And... I loved talking here.
+      </p>
+    </div>
+  </div>
+
+  <div class="faq">
+    <div class="faq-question" onclick="toggleAnswer(this)">Q: Will you give up your love when your favorite celebrity/idol asks
+    you out?</div>
+    <div class="faq-answer">
+      <p>
+        A: No! even if it's Jennie, Nayeon, Ikura, Wonyoung, Chaewon, Lily, Minji, Koga, etc. I won't exchange and give up my love for
+        my riri, for real! because my relationship and connection with her cannot be compared and matched by these people. And I wish
+        to marry my love and love her for a lifetime, there's no if's, but's, or any other third parties, never !!!
+      </p>
+    </div>
+  </div>
+
+  <div class="faq">
+    <div class="faq-question" onclick="toggleAnswer(this)">Q: Are these F.A.Q's. real? Or did you just made them up?</div>
+    <div class="faq-answer">
+      <p>
+        A: Oh you know me well, I just made this all up and these questions are really questions that came from myself :p cmon I really
+        enjoyed asking myself and answering myself here, it's fun to read isn't it?
+      </p>
+    </div>
+  </div>
+
+  <div class="faq">
+    <div class="faq-question" onclick="toggleAnswer(this)">Q: Can you explain everything in this program? It's hard to navigate and 
+      confusing.</div>
+    <div class="faq-answer">
+      <p>
+        A: I'm really sorry if it looks ugly or it's hard to navigate, I'm a beginner, I'm sorry!!! I tried my best to make it look
+        decent as much as possible with the time available and this was all I can do. Anyway, the first page has 7 clickable buttons
+        namely 1, 2, 3, Bebi, 4, F.A.Q's., and 6. Each button redirects to another page or link and there are different gimmicks on
+        each of the pages. The first button (1) is just a rickroll and it links you to a YouTube video, sorry for rickrolling you hehe.
+        The second button (2) is just an alert that says "I love you so much!", it's just a silly reminder that I love you! The third
+        button (3) is a small boring game that I made and it's just a 3-question quiz that asks about the important dates in our
+        relationship, there's no consequence if you get it wrong so just play it, but it's really pointless to be honest. The fourth
+        button (4) is a reminders page just to remind you how I adore and appreciate your existence, just a small reeminder you know.
+        The fifth button (F.A.Q's.) from the name itself is a F.A.Q page where I made some questions and answered it myself for your own
+        entertainment, I REALLY HOPE YOU'RE ENTERTAINED WITH THIS, if not then please forgive me because I love this part a lot! The
+        sixth button (6) is a silly pick-up line page where I just shame myself for putting some corny lines there for your
+        entertainment, please smile or laugh just a little. :c and last but not the least the middle button (Bebi) is where my letter
+        for you is located, this is typewreeten and I hope you appreciate it even if it's digital! I love you so much <8
+      </p>
+    </div>
+  </div>
+
+  <div class="faq">
+    <div class="faq-question" onclick="toggleAnswer(this)">Additional Comments:</div>
+    <div class="faq-answer">
+      <p>
+        So ayun na nga, very impulsive decision lang na gumawa ako neto and medyo okay naman siya I guess pero bro andami ko pa talaga
+        gusto gawin but hindi ako marunong, bawi nalang next time ehe. May surprise pa ako sa'yo bukas wait mo nalang, sana di magfail
+        yun kasi medyo mahirap siya, basta malalaman mo bukas pero by bukas I mean sa day ng Monthsary natin kasi this was written in 
+        advance kaya bukas pa, anw, bro miss na kita. SORRY IF FEEL MO DISTANT AKO OR DI KA PINAPANSIN SOMETIMES, ginagawa ko lang talaga
+        'to or baka tumatae lang ako or nagsscroll sa tiktok or may ginagawa sa school basta alam mo na yun nagpapaalam naman ako sa'yo
+        lagi at at at nagk-kwento. gago ang cringe pala netong ginagawa ko jk fak bakit ba ganto ako mainlove. ayun lang naman, sana naenjoy
+        mo 'tong simple program na ginawa ko for you, welp tinulungan ako ni chatgpt sa halos lahat pero give me credit din naman oh 
+        ilang oras ko rin 'to ineffortan hiho. yun lang bye mga ka-wonder ;)
+      </p>
+    </div>
+  </div>
+
+  <button class="my-button" onclick="goBack()">Go Back</button>
+</body>
+</html>

@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dates Reeveal</title>
+  <style>
+    body {
+      background-color: lavender;;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: Arial, sans-serif;
+      color: #d84f4f;
+    }
+
+    .correct {
+      background-color: #c3e6cb;
+    }
+
+    .my-button {
+      display: inline-block;
+      padding: 10px 20px;
+      background-color: #86B278;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    .my-button:hover {
+      background-color: #d84f4f;
+    }
+
+    #answerInput {
+      margin-bottom: 10px;
+    }
+
+    #question {
+      margin-bottom: 10px;
+    }
+
+    #goBackButton {
+      position: center;
+      bottom: 20px;
+      left: 20px;
+      display: none;
+    }
+
+  </style>
+</head>
+<body>
+  <h1>Dates Reeveal Game</h1>
+
+  <div id="question"></div>
+  <input type="text" id="answerInput">
+  <button class="my-button" onclick="checkAnswer()">Submit</button>
+  <button id="goBackButton" class="my-button" onclick="goBack()" style="display: none;">Exit</button>
+
+  <script>
+    var questions = [
+      {
+        question: "When is our First Monthsary? (xx/xx/xx) | [Month/Day/Year] | Ex: 03/23/23",
+        answer: "04/26/23"
+      },
+      {
+        question: "When did we started talking to each other? (xx/xx/xx) | [Month/Day/Year] | Ex: 03/23/23",
+        answer: "07/15/22"
+      },
+      {
+        question: "When did I confess to you? (xx/xx/xx) | [Month/Day/Year] | Ex: 03/23/23",
+        answer: "04/02/23"
+      }
+    ];
+
+    var currentQuestionIndex = 0;
+    var questionDiv = document.getElementById("question");
+    var answerInput = document.getElementById("answerInput");
+    var goBackButton = document.getElementById("goBackButton");
+
+    function displayQuestion() {
+      questionDiv.textContent = questions[currentQuestionIndex].question;
+      answerInput.value = "";
+      answerInput.focus();
+      goBackButton.style.display = "none";
+    }
+
+    function checkAnswer() {
+      var userAnswer = answerInput.value.trim();
+      var correctAnswer = questions[currentQuestionIndex].answer;
+
+      if (userAnswer === correctAnswer) {
+        document.body.classList.add("correct");
+      } else {
+        document.body.classList.remove("correct");
+        alert("Incorrect! The correct answer is: " + correctAnswer);
+      }
+
+      currentQuestionIndex++;
+
+      if (currentQuestionIndex < questions.length) {
+        displayQuestion();
+      } else {
+        alert("Quiz completed!");
+        answerInput.style.display = "none";
+        goBackButton.style.display = "inline-block";
+      }
+    }
+
+    function goBack() {
+      window.history.go(-1);
+    }
+
+    displayQuestion();
+  </script>
+</body>
+</html>

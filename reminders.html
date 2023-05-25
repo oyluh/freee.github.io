@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 200px;
+  height: 300px;
+  perspective: 1000px;
+  margin: 10px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #f9b5b5;
+  color: white;
+  transform: rotateY(0deg);
+}
+
+.flip-card-back {
+  background-color: #A27BB8;
+  color: white;
+  transform: rotateY(180deg);
+}
+
+body {
+  background-color: lavender;
+  margin: 0;
+}
+
+.my-button {
+  display: block;
+  margin: 0 auto;
+  margin-top: 10px;
+  padding: 10px 20px;
+  background-color: #86B278;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.my-button:hover {
+  background-color: #d84f4f;
+}
+
+.hh {
+   text-align: center;
+   color: #d84f4f;
+   padding-top: 200;
+}
+</style>
+</head>
+<body>
+<h1 class="hh">Reeminders</h1>
+<div class="container">
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <h1>Click Me!</h1>
+      </div>
+      <div class="flip-card-back">
+        <h1 id="c1">You are beautiful and pretty.</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <h1>Click Me!</h1>
+      </div>
+      <div class="flip-card-back">
+        <h1 id="c2">I'm proud of you.</h1>
+      </div>
+    </div>
+  </div>
+
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <h1>Click Me!</h1>
+      </div>
+      <div class="flip-card-back">
+        <h1 id="c3">I appreciate your existence.</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="btn-container">
+  <button class="my-button" onclick="goBack()">Go Back</button>
+</div>
+
+<script>
+  function goBack() {
+    window.history.go(-1);
+  }
+</script>
+
+</body>
+</html>
