@@ -1,6 +1,13 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
   <title>Freequently Asked Questions</title>
   <style>
     .faq {
@@ -60,24 +67,6 @@
     }
 
   </style>
-  
-
-  </style>
-  <script>
-    function toggleAnswer(faq) {
-      var answer = faq.nextElementSibling;
-      if (answer.style.display === "none") {
-        answer.style.display = "block";
-      } else {
-        answer.style.display = "none";
-      }
-    }
-
-    function goBack() {
-    window.history.go(-1);
-    }
-              
-  </script>
 </head>
 <body>
   <h1>Freequently Asked Questions</h1>
@@ -229,4 +218,18 @@
 
   <button class="my-button" onclick="goBack()">Go Back</button>
 </body>
+<script>
+  function toggleAnswer(faq) {
+    var answer = faq.nextElementSibling;
+    if (answer.style.display === "none") {
+      answer.style.display = "block";
+    } else {
+      answer.style.display = "none";
+    }
+  }
+
+  function goBack() {
+  window.history.go(-1);
+  }
+</script>
 </html>
