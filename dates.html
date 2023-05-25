@@ -8,124 +8,168 @@
 
 <!-- Bootstrap CSS -->
 <link rel="stylesheet" href="css/bootstrap.min.css">
-  <title>Dates Reeveal</title>
+  <title>Reez</title>
   <style>
     body {
-      background-color: lavender;;
       display: flex;
-      flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      flex-direction: column;
       height: 100vh;
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: #d84f4f;
     }
 
-    .correct {
-      background-color: #c3e6cb;
+    .grid-container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      grid-gap: 10px;
     }
 
-    .my-button {
-      display: inline-block;
-      padding: 10px 20px;
-      background-color: #86B278;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      text-decoration: none;
-      font-size: 16px;
+    .grid-item {
+      border: 1px solid black;
+      padding: 10px;
+      text-align: center;
       cursor: pointer;
-      margin-top: 10px;
     }
 
-    .my-button:hover {
-      background-color: #d84f4f;
+    .grid-item.selected .content {
+      display: block;
     }
 
-    #answerInput {
-      margin-bottom: 10px;
-    }
-
-    #question {
-      margin-bottom: 10px;
-    }
-
-    #goBackButton {
-      position: center;
-      bottom: 20px;
-      left: 20px;
+    .content {
       display: none;
     }
 
-    script{
-        text-align: center;
+    .my-button {
+      margin-top: 50px;
     }
 
+    .my-button {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color:	#6cce56;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .my-button:hover {
+        background-color: #d84f4f;
+    }
+
+    .grid-item {
+        display: inline-block;
+        padding: 10px 20px;
+        background-color: #f9b5b5;
+        color: 	white;
+        border: none;
+        border-radius: 5px;
+        text-decoration: none;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .grid-item:hover:not(.selected) {
+        background-color: #d84f4f;
+    }
+
+    body{
+      background-color: lavender;
+    }
+
+    .content {
+      background-color: transparent;
+    }
+
+    p.content {
+      font-weight: bold;
+    }
+
+    h1 {
+      color: #d84f4f;
+    }
   </style>
 </head>
 <body>
-  <h1>Dates Reeveal Game</h1>
+  <h1>Banats (with reez)</h1>
+  <div class="grid-container">
+    <div class="grid-item">
+      kung pagod ka na sa buhay mo
+      <div class="content">
+        <p><strong>lipat ka, welcome ka naman sa buhay ko ;)</strong></p>
+      </div>
+    </div>
+    <div class="grid-item">
+      ayoko magtake ng risk
+      <div class="content">
+        <p><strong>pero basta ikaw g hehe</strong></p>
+      </div>
+    </div>
+    <div class="grid-item">
+      hindi ka ba napapagod?
+      <div class="content">
+        <p><strong>araw-araw ka kasi tumatakbo sa isip ko</strong></p>
+      </div>
+    </div>
+    <div class="grid-item">
+      akala ko sa H nagsstart ang happiness
+      <div class="content">
+        <p><strong>pero bat yung sakin sa Y</strong></p>
+      </div>
+    </div>
+    <div class="grid-item">
+      edi dun ka na
+      <div class="content">
+        <p><strong>joke lang wag</strong></p>
+      </div>
+    </div>
+    <div class="grid-item">
+      ingat ka ha, ayoko may mangyari sa'yo
+      <div class="content">
+        <p><strong>gusto ko sa'tin lang</strong></p>
+      </div>
+    </div>
+    <div class="grid-item">
+      kung di ka para sakin
+      <div class="content">
+        <p><strong>para kang tanga</strong></p>
+      </div>
+    </div>
+    <div class="grid-item">
+      lagi nalang ako pagod
+      <div class="content">
+        <p><strong>g ka ba maging pahinga ko?</strong></p>
+      </div>
+    </div>
+    <div class="grid-item">
+      ang panget sa G-Cash
+      <div class="content">
+        <p><strong>sa mga ngiti mo nalang ako magpapadala :pp</strong></p>
+      </div>
+    </div>
+  </div>
 
-  <div id="question"></div>
-  <input type="text" id="answerInput">
-  <button class="my-button" onclick="checkAnswer()">Submit</button>
-  <button id="goBackButton" class="my-button" onclick="goBack()" style="display: none;">Exit</button>
+  <button class="my-button" onclick="goBack()">Go Back</button>
 </body>
 <script>
-    var questions = [
-      {
-        question: "When is our First Monthsary? (xx/xx/xx) | [Month/Day/Year] | Ex: 03/23/23",
-        answer: "04/26/23"
-      },
-      {
-        question: "When did we started talking to each other? (xx/xx/xx) | [Month/Day/Year] | Ex: 03/23/23",
-        answer: "07/15/22"
-      },
-      {
-        question: "When did I confess to you? (xx/xx/xx) | [Month/Day/Year] | Ex: 03/23/23",
-        answer: "04/02/23"
-      }
-    ];
+  var gridItems = document.querySelectorAll('.grid-item');
 
-    var currentQuestionIndex = 0;
-    var questionDiv = document.getElementById("question");
-    var answerInput = document.getElementById("answerInput");
-    var goBackButton = document.getElementById("goBackButton");
+  gridItems.forEach(function (item) {
+    item.addEventListener('click', function () {
+      var selectedItems = document.querySelectorAll('.grid-item.selected');
+      selectedItems.forEach(function (selected) {
+        if (selected !== item) {
+          selected.classList.remove('selected');
+        }
+      });
+      item.classList.toggle('selected');
+    });
+  });
 
-    function displayQuestion() {
-      questionDiv.textContent = questions[currentQuestionIndex].question;
-      answerInput.value = "";
-      answerInput.focus();
-      goBackButton.style.display = "none";
-    }
-
-    function checkAnswer() {
-      var userAnswer = answerInput.value.trim();
-      var correctAnswer = questions[currentQuestionIndex].answer;
-
-      if (userAnswer === correctAnswer) {
-        document.body.classList.add("correct");
-      } else {
-        document.body.classList.remove("correct");
-        alert("Incorrect! The correct answer is: " + correctAnswer);
-      }
-
-      currentQuestionIndex++;
-
-      if (currentQuestionIndex < questions.length) {
-        displayQuestion();
-      } else {
-        alert("Quiz completed!");
-        answerInput.style.display = "none";
-        goBackButton.style.display = "inline-block";
-      }
-    }
-
-    function goBack() {
-      window.history.go(-1);
-    }
-
-    displayQuestion();
-  </script>
+  function goBack() {
+    window.history.go(-1);
+  }
+</script>  
 </html>
