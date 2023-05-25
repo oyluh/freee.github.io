@@ -1,6 +1,13 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
+
 <head>
+<!-- Required meta tags -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="css/bootstrap.min.css">
   <title>Dates Reeveal</title>
   <style>
     body {
@@ -60,8 +67,8 @@
   <input type="text" id="answerInput">
   <button class="my-button" onclick="checkAnswer()">Submit</button>
   <button id="goBackButton" class="my-button" onclick="goBack()" style="display: none;">Exit</button>
-
-  <script>
+</body>
+<script>
     var questions = [
       {
         question: "When is our First Monthsary? (xx/xx/xx) | [Month/Day/Year] | Ex: 03/23/23",
@@ -117,5 +124,4 @@
 
     displayQuestion();
   </script>
-</body>
 </html>
