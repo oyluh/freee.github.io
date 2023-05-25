@@ -2,123 +2,148 @@
 <html lang="en">
 
 <head>
-<!-- Required meta tags -->
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<!-- Bootstrap CSS -->
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<title>Reeminders</title>
-<style>
-.container {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-  height: 80vh;
-}
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <title>Reeminders</title>
+  <style>
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      align-items: center;
+      height: 80vh;
+    }
 
-.reminder-card {
-  background-color: transparent;
-  width: 200px;
-  height: 300px;
-  margin: 10px;
-}
+    .reminder-card {
+      background-color: transparent;
+      width: 200px;
+      height: 300px;
+      margin: 10px;
+    }
 
-.reminder-card button {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background-color: #f9b5b5;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
+    .reminder-card button {
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-color: #f9b5b5;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
 
-.reminder-card button:hover {
-  background-color: #d84f4f;
-}
+    .reminder-card button:hover {
+      background-color: #d84f4f;
+    }
 
-.reminder-card p {
-  display: none;
-  padding: 10px;
-  border: 2px solid #A27BB8;
-  border-radius: 5px;
-  background-color: #A27BB8;
-  color: white;
-}
+    .reminder-card p {
+      display: none;
+      padding: 10px;
+      border: 2px solid #A27BB8;
+      border-radius: 5px;
+      background-color: #A27BB8;
+      color: white;
+    }
 
-body {
-  background-color: lavender;
-  margin: 0;
-}
+    body {
+      background-color: lavender;
+      margin: 0;
+    }
 
-.heading-container {
-  text-align: center;
-  padding: 20px;
-}
+    .heading-container {
+      text-align: center;
+      padding: 20px;
+    }
 
-.btn-container {
-  text-align: center;
-  margin-top: 10px;
-}
+    .btn-container {
+      text-align: center;
+      margin-top: 10px;
+    }
 
-.my-button {
-  padding: 10px 20px;
-  background-color: #86B278;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  text-decoration: none;
-  font-size: 16px;
-  cursor: pointer;
-}
+    .my-button {
+      padding: 10px 20px;
+      background-color: #86B278;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+    }
 
-.my-button:hover {
-  background-color: #d84f4f;
-}
+    .my-button:hover {
+      background-color: #d84f4f;
+    }
 
-.hh {
-   text-align: center;
-   color: #d84f4f;
-   margin-top: 20px;
-}
-</style>
+    .hh {
+      text-align: center;
+      color: #d84f4f;
+      margin-top: 20px;
+    }
+
+    @media (max-width: 576px) {
+      .container {
+        height: auto;
+        padding-bottom: 70px; /* Add bottom padding for the back button */
+      }
+
+      .reminder-card {
+        width: calc(33.33% - 20px); /* Adjust the width calculation to provide space between cards */
+        margin: 10px; /* Add margin to create space between cards */
+      }
+
+      .btn-container {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        padding: 10px;
+        background-color: white;
+        z-index: 9999;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<div class="heading-container">
-  <h1 class="hh">Reeminders</h1>
-</div>
-
-<div class="container">
-  <div class="reminder-card">
-    <button onclick="toggleReminder(1)">Click Me!</button>
-    <p id="c1">You are beautiful and pretty.</p>
+  <div class="heading-container">
+    <h1 class="hh">Reeminders</h1>
   </div>
 
-  <div class="reminder-card">
-    <button onclick="toggleReminder(2)">Click Me!</button>
-    <p id="c2">I'm proud of you.</p>
+  <div class="container">
+    <div class="reminder-card">
+      <button onclick="toggleReminder(1)">Click Me!</button>
+      <p id="c1">You are beautiful and pretty.</p>
+    </div>
+
+    <div class="reminder-card">
+      <button onclick="toggleReminder(2)">Click Me!</button>
+      <p id="c2">I'm proud of you.</p>
+    </div>
+
+    <div class="reminder-card">
+      <button onclick="toggleReminder(3)">Click Me!</button>
+      <p id="c3">I appreciate your existence.</p>
+    </div>
   </div>
 
-  <div class="reminder-card">
-    <button onclick="toggleReminder(3)">Click Me!</button>
-    <p id="c3">I appreciate your existence.</p>
+  <div class="btn-container">
+    <button class="my-button" onclick="goBack()">Back</button>
   </div>
-</div>
 
-<div class="btn-container">
-  <button class="my-button" onclick="goBack()">Back</button>
-</div>
-</body>
-<script>
+  <script>
     function toggleReminder(cardId) {
       var reminder = document.getElementById('c' + cardId);
       reminder.style.display = reminder.style.display === 'none' ? 'block' : 'none';
     }
+
     function goBack() {
       window.history.go(-1);
     }
   </script>
+</body>
 </html>
